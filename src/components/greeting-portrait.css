@@ -1,0 +1,87 @@
+.greeting-composition {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(88px, 39%) minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(3px, 1.5vw, 14px);
+  margin: 14px auto 18px;
+  padding-block: 7px;
+}
+
+.greeting-words {
+  display: grid;
+  gap: clamp(12px, 3.3vw, 20px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #e0e7ff;
+  font-size: clamp(.73rem, 2.9vw, 1.04rem);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.greeting-words li {
+  animation: greeting-drift 3.15s var(--drift-phase) ease-in-out infinite alternate;
+}
+.words-right li { animation-direction: alternate-reverse; }
+.greeting-words .greeting-favorite {
+  color: #ffbde2;
+  font-weight: 600;
+}
+
+.greeting-portrait {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  padding: 12px 2px 10px;
+  min-width: 0;
+}
+.greeting-portrait::before {
+  position: absolute;
+  inset: 6% -8% 0;
+  content: "";
+  background: radial-gradient(ellipse, #ce75d74f 4%, #7672d137 47%, transparent 72%);
+  z-index: -1;
+}
+
+.greeting-face {
+  display: block;
+  width: 90%;
+  aspect-ratio: .79;
+  object-fit: contain;
+  filter: drop-shadow(1px 0 #ffe3f3) drop-shadow(-1px 0 #ffe3f3)
+    drop-shadow(0 -1px #ffe3f3) drop-shadow(0 1px #ffe3f3) drop-shadow(0 4px 8px #0b0c29bb);
+  animation: greeting-drift 3.5s ease-in-out infinite alternate-reverse;
+}
+
+.greeting-surprises { position: absolute; inset: 0; pointer-events: none; }
+.greeting-surprises > * {
+  position: absolute;
+  animation: greeting-drift 2.8s var(--drift-phase, 0s) ease-in-out infinite alternate;
+}
+.greeting-star { right: 0; top: 13%; color: #b5c5ff; fill: #8da4ec; --drift-phase: -.8s; }
+.greeting-spark { left: -4%; top: 31%; color: #ffabd8; fill: #e27cb863; --drift-phase: -1.3s; }
+.greeting-heart { right: -4%; bottom: 15%; color: #ffc0e0; fill: #c95b99a0; --drift-phase: -2.2s; }
+.greeting-cake { left: -5%; bottom: 0; width: clamp(27px, 8vw, 52px); --drift-phase: -1.2s; }
+.greeting-hat {
+  left: 14%;
+  top: -1%;
+  width: clamp(19px, 6vw, 36px);
+  aspect-ratio: .8;
+  background: repeating-linear-gradient(145deg, #ffaada 0 5px, #b0beff 5px 10px);
+  clip-path: polygon(16% 0, 100% 78%, 82% 96%, 19% 100%, 0 87%);
+  --drift-phase: -.35s;
+}
+.greeting-surprises i { width: 4px; height: 7px; border-radius: 1px; background: #e8a7df; transform: rotate(23deg); }
+.greeting-surprises i:nth-last-child(2) { top: 2%; right: 22%; --drift-phase: -.9s; }
+.greeting-surprises i:last-child { left: 31%; bottom: 0; background: #b9c9ff; --drift-phase: -1.6s; }
+
+@keyframes greeting-drift {
+  from { translate: 0 3px; }
+  to { translate: 0 -4px; }
+}
+
+@media (max-width: 380px) and (max-height: 620px) {
+  .scene.greeting .story-title { font-size: 1.18rem; }
+  .greeting-composition { margin-block: 11px 13px; }
+}

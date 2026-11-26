@@ -37,6 +37,7 @@
   box-shadow: 0 0 0 3px #b9caff37, 0 4px 0 var(--badge-shadow);
   transform: rotate(var(--badge-angle));
   transition: transform .18s ease, box-shadow .18s ease;
+  animation: opening-guest-float 2.9s ease-in-out infinite alternate;
 }
 
 .opening-guest:hover, .opening-guest:focus-visible {
@@ -51,6 +52,12 @@
   grid-column: 3;
   background: #fce1f1;
   color: #a4c8ff;
+  animation-delay: -1.45s;
+}
+
+@keyframes opening-guest-float {
+  from { translate: 0 4px; }
+  to { translate: 0 -7px; }
 }
 
 .guest-disc {

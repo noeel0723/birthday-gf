@@ -6,6 +6,7 @@ import Companions from './components/Companions'
 import Icon from './components/Icon'
 import FlowerTransition from './components/FlowerTransition'
 import FlowerGift from './components/FlowerGift'
+import GreetingPortrait from './components/GreetingPortrait'
 import WishBottle from './components/WishBottle'
 import LetterCollage from './components/LetterCollage'
 import OpeningParty from './components/OpeningParty'
@@ -78,7 +79,10 @@ export default function App(){
         <div key={level} className={'quest-page'+(level===3?' quest-playlist':level===titles.length-1?' quest-ending':'')}>
           <div className={'scene story'+(level===1?' greeting':'')}>
             <h1 className="story-title" ref={heading} tabIndex="-1">{titles[level]}</h1>
-            {level===1&&<p>to the kindest and sweetest soul, may life bring you all the beautiful things you deserve!</p>}
+            {level===1&&<>
+              <GreetingPortrait/>
+              <p>to the kindest and sweetest soul, may life bring you all the beautiful things you deserve!</p>
+            </>}
             {level===2&&<>
               <LetterCollage/>
               <div className="letter-paper">{letter.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>
