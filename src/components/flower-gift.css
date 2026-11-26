@@ -1,9 +1,7 @@
 .flower-gift {
-  width: min(100%, 475px);
-  margin: clamp(29px, 7vh, 53px) auto 0;
+  width: min(100%, 410px);
+  margin: 0 auto 18px;
   text-align: center;
-  border-top: 1px solid #8290ca54;
-  padding-top: 17px;
 }
 
 .flower-gift h2 {

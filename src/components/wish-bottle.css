@@ -4,12 +4,6 @@
   text-align: center;
 }
 
-.wish-bottle-scene > p {
-  margin: 0 0 17px;
-  color: #d5def5;
-  line-height: 1.5;
-}
-
 .wish-bottle {
   position: relative;
   width: min(64vw, 238px);
@@ -176,7 +170,6 @@
   .quest-page.quest-ending { padding-top: calc(58px + env(safe-area-inset-top)); }
   .quest-ending .story-title { margin-top: 4px; }
   .quest-ending .story-nav { padding-top: 10px; }
-  .wish-bottle-scene > p { margin-bottom: 12px; font-size: .92rem; }
   .bottle-glass { height: 183px; }
   .shake-button { margin-top: 10px; }
 }

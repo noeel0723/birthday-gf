@@ -27,7 +27,6 @@ export default function WishBottle() {
   }
 
   return <div className="wish-bottle-scene">
-    <p>Give it a little shake, or tap a wish to open it.</p>
     <div className="wish-bottle" data-shake={shakeCount ? shakeCount % 2 : undefined}>
       <div className="bottle-cap" aria-hidden="true"/>
       <div className="bottle-neck" aria-hidden="true"/>

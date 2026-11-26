@@ -8,6 +8,7 @@ import FlowerTransition from './components/FlowerTransition'
 import FlowerGift from './components/FlowerGift'
 import WishBottle from './components/WishBottle'
 import LetterCollage from './components/LetterCollage'
+import OpeningParty from './components/OpeningParty'
 
 const titles=['','HAPPY BIRTHDAY, MY BABY!','A letter for you','Your soundtrack','pictures of you','Wish Bottle']
 const stars=Array.from({length:29},(_,i)=>({left:((i*43+5)%100)+'%',top:((i*37+3)%96)+'%'}))
@@ -64,10 +65,12 @@ export default function App(){
   if(boot)return null
   return <>
     {level===0 ? <main className={'opening'+(transition?' opening-exit':'')}>
-      <button className="opening-cake" ref={heading} onClick={()=>go(1,true)}>
-        <img src="/images/floating-cake.webp" alt="" fetchPriority="high"/>
-        <span lang="en">touch the cake!</span>
-      </button>
+      <OpeningParty>
+        <button className="opening-cake" ref={heading} onClick={()=>go(1,true)}>
+          <img src="/images/floating-cake.webp" alt="" fetchPriority="high"/>
+          <span lang="en">touch the cake!</span>
+        </button>
+      </OpeningParty>
     </main> : <main className="console">
       <div className={'screen '+(transition?'warping':'')}>
         <div className="stars" aria-hidden="true">{stars.map((s,i)=><i key={i} style={s}/>)}</div>
@@ -83,8 +86,8 @@ export default function App(){
             {level===3&&<Soundtrack/>}
             {level===4&&<Gallery/>}
             {level===titles.length-1&&<>
-              <WishBottle/>
               <FlowerGift/>
+              <WishBottle/>
             </>}
             <div className="story-nav">
               {level!==3&&<button className="quest-sound" aria-label="Background music" aria-pressed={music} onClick={()=>{setSoundError('');setMusic(!music)}}><Icon name={music?'pause':'music'} size={17}/></button>}
