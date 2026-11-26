@@ -27,23 +27,6 @@
   background: radial-gradient(ellipse at 50% 44%, #ea90c644, #8f8be227 42%, transparent 69%);
 }
 
-.polaroid-glow {
-  position: absolute;
-  top: 51%;
-  left: 50%;
-  width: clamp(44px, 15%, 68px);
-  transform: translate(-50%, -50%) rotate(-9deg);
-  color: #ffd0eb;
-  filter: drop-shadow(0 0 13px #ef91cc70);
-}
-
-.polaroid-glow svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  fill: #e98cc55e;
-}
-
 .polaroid-frame {
   position: absolute;
   display: grid;
@@ -70,6 +53,12 @@
   z-index: 1;
   transition: transform .19s ease, box-shadow .19s ease;
 }
+.polaroid-center {
+  width: 25%;
+  border-color: #f4bfdc;
+  box-shadow: 0 5px 18px #ee99d566;
+}
+.polaroid-center img { object-position: center top; }
 .polaroid-photo:is(:hover, :focus-visible) {
   z-index: 2;
   transform: translate(-50%, -53%) rotate(0) scale(1.12);

@@ -16,4 +16,4 @@ The blue hedgehog is on the bottom left and Emma is on the bottom right. Replace
 
 If playback needs another tap, press **Play** directly in the Spotify player. **Open in Spotify** opens the track externally.
 
-Edit the letter, gallery captions, and five bottle wishes in `src/data/scrapbook.js`. To fill the 14 Polaroid slots, put your photos in `public/images` and add entries to the `photos` array. Each entry has a `src`, `title`, optional `alt`, and `caption`.
+Edit the letter, gallery captions, and five bottle wishes in `src/data/scrapbook.js`. The 14 gallery entries in `photos` use images from `public/images`. Each entry has a `src`, `title`, optional `alt`, and `caption`. Mark one entry with `featured: true` to show it in the center.

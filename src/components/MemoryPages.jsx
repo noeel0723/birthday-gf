@@ -3,13 +3,19 @@ import { photos } from '../data/scrapbook'
 import Icon from './Icon'
 import './polaroid-heart.css'
 
-// Fill the lobes and point first so the heart reads clearly with a partial set.
-const positions = [
+// Fill the lobes and point first so the outline reads clearly with a partial set.
+const outline = [
   [29, 14, -8], [71, 14, 8], [50, 88, 2],
   [15, 25, -7], [85, 25, 7], [63, 77, -5],
   [37, 77, 6], [11, 41, 3], [89, 41, -3],
   [16, 55, -9], [84, 55, 9], [26, 66, -6],
-  [74, 66, 6], [50, 26, -3],
+  [74, 66, 6],
+]
+const outlinePhotos = photos.filter(photo => !photo.featured)
+const centerPhoto = photos.find(photo => photo.featured) ?? outlinePhotos[outline.length]
+const slots = [
+  ...outline.map((position, index) => ({ position, item: outlinePhotos[index] })),
+  { position: [50, 48, -3], item: centerPhoto, centered: true },
 ]
 
 export function Gallery() {
@@ -22,12 +28,11 @@ export function Gallery() {
 
   return <div className="picture-gallery">
     <div className="polaroid-heart">
-      <span className="polaroid-glow" aria-hidden="true"><Icon name="heart" size={80}/></span>
-      {positions.map(([x, y, angle], index) => {
-        const item = photos[index]
+      {slots.map(({ position: [x, y, angle], item, centered }, index) => {
         const style = { left: x + '%', top: y + '%', '--card-angle': angle + 'deg' }
         return item ? (
-          <button type="button" className="polaroid-frame polaroid-photo" key={index} style={style}
+          <button type="button" className={'polaroid-frame polaroid-photo' + (centered ? ' polaroid-center' : '')}
+            key={item.src} style={style}
             aria-label={'View ' + item.title} aria-haspopup="dialog" onClick={() => setPhoto(item)}>
             <img src={item.src} alt=""/>
           </button>

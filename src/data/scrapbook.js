@@ -71,6 +71,73 @@ export const photos = [
     alt: 'A portrait in a Zatanna costume with a black top hat',
     caption: 'I love this photo of you as Zatanna, especially because you felt the costume really suited you. It did, my love. You looked absolutely beautiful.',
   },
+  {
+    src: '/images/cat-filter.webp',
+    title: 'My little cat',
+    alt: 'A selfie with hand-drawn cat ears and whiskers',
+    caption: 'Baby with the cat filter. I love this one so much. You’re basically a cat, and it’s adorable.',
+  },
+  {
+    src: '/images/gingham-outfit.webp',
+    title: 'The gingham outfit',
+    alt: 'A selfie in a red gingham outfit',
+    caption: 'You felt a little weird in this outfit because you said it looked like a cleaning rag, lololol.',
+  },
+  {
+    src: '/images/snapchat-mustache.webp',
+    title: 'The Snapchat mustache',
+    alt: 'A selfie with a sunglasses and mustache filter',
+    caption: 'Baby with a Snapchat filter. You looked sooo cute, my love.',
+  },
+  {
+    src: '/images/matching-discord.webp',
+    title: 'Matching on Discord',
+    alt: 'Two side-by-side selfies with a puppy filter',
+    caption: 'We wanted to match with that TikTok filter, hehe. We ended up using matching profile pictures on Discord.',
+  },
+  {
+    src: '/images/after-class.webp',
+    title: 'After class',
+    alt: 'A selfie in a dark hoodie',
+    caption: 'The selfie you sent me from SMS after class!',
+  },
+  {
+    src: '/images/early-days.webp',
+    title: 'When we first started dating',
+    alt: 'A selfie with a glittery puppy filter',
+    caption: 'Another Snapchat filter selfie! I love this one so much. It’s from when we first started dating, baby.',
+  },
+  {
+    src: '/images/new-year-karaoke.webp',
+    title: 'New Year karaoke',
+    alt: 'A selfie in front of a red karaoke booth seat',
+    caption: 'Right at the start of the new year, when you went to karaoke with your friends!',
+  },
+  {
+    src: '/images/cutest-selfie.webp',
+    title: 'The one I picked',
+    alt: 'A selfie with a puppy filter and pink striped pajamas',
+    caption: 'You wanted to send me a selfie but couldn’t decide which one, so I picked the cutest!',
+  },
+  {
+    src: '/images/anime-pose.webp',
+    title: 'Your anime pose',
+    alt: 'A playful selfie with a hand pose in front of a blue wall',
+    caption: 'Baby doing your chaotic little anime cosplay pose, lol!',
+  },
+  {
+    src: '/images/toothless.webp',
+    title: 'Toothless for two',
+    alt: 'A selfie with a Toothless plush perched on top of her head',
+    caption: 'The first time you wanted to get Toothless so we could match. That was so cute, baby.',
+    featured: true,
+  },
+  {
+    src: '/images/out-with-friends.webp',
+    title: 'Out with your friends',
+    alt: 'A portrait sitting by a rain-speckled window',
+    caption: 'A photo from when you were out with your friends!',
+  },
 ]
 
 export const wishes = [
