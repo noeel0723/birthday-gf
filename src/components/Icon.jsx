@@ -11,6 +11,7 @@ const shapes = {
   camera: <><path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13" r="3.5"/></>,
   close: <path d="m6 6 12 12M18 6 6 18"/>,
   chevron: <path d="m9 5 7 7-7 7"/>,
+  back: <path d="m12 5-7 7 7 7M5 12h14"/>,
   play: <path d="m8 4 12 8-12 8Z"/>,
   pause: <path d="M8 5v14M16 5v14"/>,
 }

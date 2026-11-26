@@ -12,7 +12,7 @@ Ganti `public/characters/sonic.png` dan `public/characters/emma-meyers.png` deng
 2. Buka `src/data/scrapbook.js`. Di dalam daftar `songs`, salin salah satu entri lalu tempel tepat sebelum tanda `]` penutup daftar.
 3. Ganti `title`, `artist`, dan `spotifyUrl`. Tautan lagu berbentuk `https://open.spotify.com/track/…`. Bagian `?si=…` boleh ikut ditempel.
 4. Isi `note` dengan alasan personal kamu. Misalnya, “Bagian pianonya bikin aku ingat sore waktu kita berteduh dan kamu nyanyi pelan.”
-5. Simpan file dan buka layar **Soundtrack kamu**. Arahkan kursor atau fokuskan kartu dengan Tab untuk melihat pesan. Ketuk kartu di HP untuk membuka pesan dan meminta Spotify memutar lagunya.
+5. Simpan file dan buka layar **Soundtrack kamu**. Arahkan kursor ke baris lagu atau fokuskan dengan Tab untuk menampilkan pesannya di catatan. Ketuk lagunya untuk memilih pesan dan meminta Spotify memutar lagu.
 
 Jika perangkat meminta satu ketukan lagi, tekan **Play** di pemutar Spotify yang muncul di bawah kartu. Musik latar arcade dijeda selama layar playlist terbuka. Jika Spotify tidak bisa dimuat, **Buka Spotify** mengarah langsung ke lagu.
 
