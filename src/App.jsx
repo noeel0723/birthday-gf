@@ -7,7 +7,7 @@ import Icon from './components/Icon'
 import FlowerTransition from './components/FlowerTransition'
 import WishBottle from './components/WishBottle'
 
-const titles=['','HAPPY BIRTHDAY, MY BABY!','A letter for you','Your soundtrack','About '+recipient,'Our little gallery','Wish Bottle']
+const titles=['','HAPPY BIRTHDAY, MY BABY!','A letter for you','Your soundtrack','About '+recipient,'pictures of you','Wish Bottle']
 const stars=Array.from({length:29},(_,i)=>({left:((i*43+5)%100)+'%',top:((i*37+3)%96)+'%'}))
 
 export default function App(){

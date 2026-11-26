@@ -58,9 +58,24 @@ export const facts = [
   { clue: 'Where’s my favorite place?', answer: 'Right beside you, even when we’re just sitting quietly.' },
 ]
 export const photos = [
-  { src: '/images/sky.webp', title: 'Blue skies', caption: 'For the days when everything feels possible.' },
-  { src: '/images/daisies.webp', title: 'Little flowers', caption: 'The simple things deserve to be celebrated, too.' },
-  { src: '/images/ocean.webp', title: 'A quiet evening', caption: 'One more wish before the sun goes down.' },
+  {
+    src: '/images/first-selfie.webp',
+    title: 'Your first selfie',
+    alt: 'A selfie with a sparkly puppy filter',
+    caption: 'The very first selfie you sent me. It caught me by surprise in the sweetest way, and I still love it so much.',
+  },
+  {
+    src: '/images/matching-phone-cases.webp',
+    title: 'Matching phone cases',
+    alt: 'A mirror selfie showing the phone case',
+    caption: 'The photo you took when we first got matching phone cases. It was such a little thing, and I loved it so much.',
+  },
+  {
+    src: '/images/zatanna.webp',
+    title: 'You as Zatanna',
+    alt: 'A portrait in a Zatanna costume with a black top hat',
+    caption: 'I love this photo of you as Zatanna, especially because you felt the costume really suited you. It did, my love. You looked absolutely beautiful.',
+  },
 ]
 
 export const wishes = [

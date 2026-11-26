@@ -16,8 +16,20 @@ export function FactCards() {
 }
 
 export function Gallery(){
-  const [index,setIndex]=useState(0)
-  return <><div className="gallery-photo"><img src={photos[index].src} alt={photos[index].title}/><span>{photos[index].title}</span></div>
-    <p aria-live="polite">{photos[index].caption}</p>
-    <div className="thumbs">{photos.map((p,i)=><button key={p.src} aria-label={'View '+p.title} aria-pressed={i===index} onClick={()=>setIndex(i)}><img alt="" src={p.src}/></button>)}</div></>
+  const [index, setIndex] = useState(0)
+  const photo = photos[index]
+
+  return <div className="picture-gallery">
+    <figure className="gallery-photo">
+      <img src={photo.src} alt={photo.alt ?? photo.title}/>
+      <figcaption>{photo.title}</figcaption>
+    </figure>
+    <p aria-live="polite">{photo.caption}</p>
+    <div className="thumbs">
+      {photos.map((item, i) => <button type="button" key={item.src}
+        aria-label={'View ' + item.title} aria-pressed={i === index} onClick={() => setIndex(i)}>
+        <img alt="" src={item.src}/>
+      </button>)}
+    </div>
+  </div>
 }
