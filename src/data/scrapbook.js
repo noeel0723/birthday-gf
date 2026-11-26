@@ -9,7 +9,8 @@ export const songs = [
   {
     title: "Like I'm Gonna Lose You",
     artist: 'Meghan Trainor feat. John Legend',
-    spotifyUrl: 'https://open.spotify.com/track/2EJwxob7gpbWLzr5FhEAk4',
+    spotifyUrl: 'https://open.spotify.com/track/63SJlZTnlSDbzpGwIs1SKe',
+    youtubeUrl: 'https://www.youtube.com/watch?v=2-MBfn8XjIU',
     note: 'This song makes me want to linger a little longer when we say goodnight. Even the smallest moments with you are worth holding on to.',
   },
   {
@@ -19,10 +20,10 @@ export const songs = [
     note: 'Being with you feels like taking a deep breath at the end of a long day. I could sit beside you in complete silence and still feel understood.',
   },
   {
-    title: 'Out of My League',
-    artist: 'Fitz and The Tantrums',
-    spotifyUrl: 'https://open.spotify.com/track/2AYEOC02WLhUiOoaig2SEH',
-    note: 'You still give me butterflies at the most random moments. You’ll smile at me from across the room, and suddenly I’m trying very hard to act normal.',
+    title: 'Out Of My League',
+    artist: 'LANY',
+    spotifyUrl: 'https://open.spotify.com/track/0O7V6ItLSmWsh8qisU8mTr',
+    note: 'Every now and then, I look over at you and think, how did I get this lucky? It usually happens in the middle of something ordinary, which makes it even sweeter.',
   },
 ]
 export const facts = [

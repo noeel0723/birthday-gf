@@ -92,6 +92,7 @@ function Track({song,index,selected,onSelect,onPreview,playing,setPlayingIndex})
     <div hidden={!selected} className="spotify-panel" id={'player-'+index}>
       <div ref={host}/>
       {selected&&<p>{!trackId?'Tautan lagu perlu diperbarui.':unavailable?'Pemutar belum terhubung.':!playing?'Jika musik belum terdengar, tekan Play di pemutar.':''} {trackId&&<a href={'https://open.spotify.com/track/'+trackId} target="_blank" rel="noreferrer">Buka Spotify</a>}</p>}
+      {selected&&song.youtubeUrl&&<p><a href={song.youtubeUrl} target="_blank" rel="noreferrer">Tonton video resmi di YouTube</a></p>}
     </div>
   </>
 }
