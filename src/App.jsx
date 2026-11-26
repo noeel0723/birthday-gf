@@ -74,7 +74,7 @@ export default function App(){
           <div className={'scene story'+(level===1?' greeting':'')}>
             <h1 className="story-title" ref={heading} tabIndex="-1">{titles[level]}</h1>
             {level===1&&<p>Today the world is yours, {recipient}. I hope the wish you whispered comes true, little by little. ♡</p>}
-            {level===2&&<div className="letter-paper"><b>My dearest {recipient},</b>{letter.map(line=><p key={line}>{line}</p>)}<span>With love, me ♡</span></div>}
+            {level===2&&<div className="letter-paper">{letter.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
             {level===3&&<Soundtrack/>}
             {level===4&&<FactCards/>}{level===5&&<Gallery/>}{level===6&&<WishBottle/>}
             <div className="story-nav">

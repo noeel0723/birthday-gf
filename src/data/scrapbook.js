@@ -1,9 +1,27 @@
 // Customize the letter, songs, pictures, and wishes here.
 export const recipient = 'Raya'
 export const letter = [
-  'I wanted to give you a little place you can come back to whenever you like. It’s filled with simple things, just like the little moments I love most about our days together.',
-  'I hope this next year brings you more quiet mornings, chances to try the things you’ve been wanting to try, and the courage to choose what makes you happy.',
-  'If you ever forget how much you mean to me, come back to this page. I love you. Happy birthday, my love!',
+  'HAPPY BIRTHDAY MY BABYYYY, i hope this new year of your life brings you better days and good things in every way. you’re the sweetest and strongest woman ever! ' +
+    'thank you so much for accepting me as i am all this time. i know i have a lot of flaws, and even now you still choose to stay with me. i’m really, really grateful to you for that!',
+
+  'i want to say i’m sorry for every time i’ve hurt you. and i want to thank you again for every moment we’ve spent together so far. ' +
+    'thank you for accepting the parts of me that other people might have a hard time accepting. you’ve been so kind about all of it, and i’m really grateful. ' +
+    'thank you for every gift, for your time, and for everything you’ve given me. i appreciate all of it. i’m sorry if i haven’t been able to give as much in return yet. ' +
+    'i’ll always want the best for you, and i’ll do my best to give you the world someday, because you deserve every good thing that comes your way!',
+
+  'thank you for always supporting me in the things i’ve wanted and worked toward, from the watch and the comics to helping me with my thesis proposal seminar and being there to calm me down whenever i was struggling. ' +
+    'thank you so much, baby... i hope you can see how much you’re worth, too. i’m sure everyone would agree that you’re the kindest, most caring person ever! ' +
+    'i’m honestly in awe of the way you treat people, the way you listen to them, and the way you make them feel loved. i hope someday i can be a little more like you and care for people the way you do!',
+
+  'thank you for always remembering the little things i like. it makes me so happy that you notice them, and i notice how you always try to find out what i’m wishing for, too. ' +
+    'sometimes i hold back when you ask. i do want to tell you what i like. i just don’t want you going to all that trouble for meee. thank you for caring about me like that, baby!',
+
+  'i hope every good thing headed your way turns out to be a blessing for you. whatever comes next, i hope it brings you something to smile about! ' +
+    'i always hope you’re happy and that the people around you give you all the love you deserve!',
+
+  'when things get hard, i want you to remember you’ve got me, okay? i’ll always do my best for you, my love! ' +
+    'you mean somuch to me! if you ever forget how much you mean to me, come back to this page, okayyy hehehe. ' +
+    'i love you somuch my baby, and once again happy birthday my gorgeous darling!',
 ]
 export const songs = [
   {
