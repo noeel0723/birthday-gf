@@ -6,9 +6,9 @@ export const letter = [
   'Kalau suatu hari kamu lupa betapa berharganya kamu, buka lagi halaman ini. Aku sayang kamu. Selamat ulang tahun, pacarku!',
 ]
 export const songs = [
-  { title: 'Every Summertime', artist: 'NIKI', note: 'Buat rasa hangat yang datang setiap kali aku ingat kamu.' },
-  { title: 'Bergema Sampai Selamanya', artist: 'Nadhif Basalamah', note: 'Buat harapan kecilku supaya kita terus saling memilih.' },
-  { title: 'Best Part', artist: 'Daniel Caesar feat. H.E.R.', note: 'Untuk kamu, bagian paling manis dari hari yang biasa saja.' },
+  { title: 'Every Summertime', artist: 'NIKI', spotifyUrl: 'https://open.spotify.com/track/68HocO7fx9z0MgDU0ZPHro', note: 'Buat rasa hangat yang datang setiap kali aku ingat kamu.' },
+  { title: 'Bergema Sampai Selamanya', artist: 'Nadhif Basalamah', spotifyUrl: 'https://open.spotify.com/track/1RaJdXCj61oSRUUciGKoWe', note: 'Buat harapan kecilku supaya kita terus saling memilih.' },
+  { title: 'Best Part', artist: 'Daniel Caesar feat. H.E.R.', spotifyUrl: 'https://open.spotify.com/track/1RMJOxR6GRPsBHL8qeC2ux', note: 'Untuk kamu, bagian paling manis dari hari yang biasa saja.' },
 ]
 export const facts = [
   { clue: 'Kekuatan supermu?', answer: 'Bikin satu chat pendek terasa seperti pelukan panjang.' },
