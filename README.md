@@ -4,7 +4,7 @@ Jalankan `npm install` lalu `npm run dev` untuk membuka pratinjau lokal. Gunakan
 
 ## Ganti PNG Sonic dan Emma
 
-Ganti `public/characters/sonic.png` dan `public/characters/emma-meyers.png` dengan gambarmu. Pertahankan nama file dan huruf kecilnya. PNG transparan dengan ruang kosong tipis di sekeliling karakter akan terlihat paling rapi. Kedua gambar muncul berdampingan di layar ucapan dan otomatis menyesuaikan ukuran tanpa terpotong.
+Ganti `public/characters/sonic.png` dan `public/characters/emma-meyers.png` dengan PNG transparan milikmu. Pertahankan nama file dan huruf kecilnya. Ikon pertama menghiasi sudut kiri bawah Birthday Quest dan ikon kedua menghiasi sudut kanan bawah. Ketuk ikon untuk memainkan animasinya. Gambar pengganti otomatis mengikuti ukuran ikon.
 
 ## Tambahkan lagu dari Spotify
 

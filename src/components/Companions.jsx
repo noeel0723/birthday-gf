@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
-import ArcadeIcon from './ArcadeIcon'
 
-function Companion({file,name,pink}){
-  const [missing,setMissing]=useState(false)
-  return <figure className={'companion '+(pink?'pink':'blue')}>
-    <div className="portrait">{missing
-      ? <span aria-hidden="true">{pink?<ArcadeIcon name="star" size={43}/>:<i className="ring"/>}</span>
-      : <img src={'/characters/'+file} alt={name} onError={()=>setMissing(true)}/>}</div>
-    <figcaption>{name}</figcaption>
-  </figure>
+function Sticker({file, label, variant, fallback}) {
+  const [tap, setTap] = useState(0)
+  const [missing, setMissing] = useState(false)
+
+  return <button type="button" className={'sticker sticker-' + variant}
+    aria-label={label} onClick={() => setTap(count => count + 1)}>
+    <span key={tap} aria-hidden="true" className={tap ? 'sticker-react' : ''}>
+      {missing ? fallback : <img src={'/characters/' + file} alt="" onError={() => setMissing(true)}/>}
+    </span>
+  </button>
 }
-export default function Companions(){
-  return <div className="companions"><Companion file="sonic.png" name="Sonic"/><Companion file="emma-meyers.png" name="Emma Meyers" pink/></div>
+
+export default function Companions() {
+  return <>
+    <Sticker file="sonic.png" label="Mainkan stiker Sonic" variant="ring" fallback="◯"/>
+    <Sticker file="emma-meyers.png" label="Mainkan stiker Emma" variant="star" fallback="★"/>
+  </>
 }
