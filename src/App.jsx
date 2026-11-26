@@ -59,12 +59,12 @@ export default function App(){
       </button>
     </main>
   }
-  return <main className="console" aria-label="Birthday Quest">
+  return <main className="console">
       <div className={'screen '+(transition?'warping':'')}>
         <div className="stars" aria-hidden="true">{stars.map((s,i)=><i key={i} style={s}/>)}</div>
         <div key={level} className="quest-page">
           <div className={'scene story'+(level===1?' greeting':'')}>
-            <div className="story-title"><span className="level-tag"><ArcadeIcon name="star" size={12}/> BIRTHDAY QUEST</span><h1 ref={heading} tabIndex="-1">{titles[level]}</h1></div>
+            <h1 className="story-title" ref={heading} tabIndex="-1">{titles[level]}</h1>
             {level===1&&<p>Hari ini dunianya milik kamu, {recipient}. Semoga doa yang tadi kamu bisikkan pelan-pelan jadi nyata. ♡</p>}
             {level===2&&<div className="letter-paper"><b>Sayangku, {recipient},</b>{letter.map(line=><p key={line}>{line}</p>)}<span>Dengan sayang, aku ♡</span></div>}
             {level===3&&<><p>Pilih lagu untuk mendengar dan membuka pesan dariku.</p><Soundtrack/></>}
