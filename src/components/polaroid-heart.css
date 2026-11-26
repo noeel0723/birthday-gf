@@ -1,0 +1,127 @@
+.picture-gallery {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.picture-gallery > p {
+  margin: 0;
+  color: #d2d9eb;
+  line-height: 1.5;
+}
+
+.polaroid-heart {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 460px);
+  aspect-ratio: 1.1;
+  margin: 4px auto 9px;
+}
+
+.polaroid-heart::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 44%, #ea90c644, #8f8be227 42%, transparent 69%);
+}
+
+.polaroid-glow {
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  width: clamp(44px, 15%, 68px);
+  transform: translate(-50%, -50%) rotate(-9deg);
+  color: #ffd0eb;
+  filter: drop-shadow(0 0 13px #ef91cc70);
+}
+
+.polaroid-glow svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: #e98cc55e;
+}
+
+.polaroid-frame {
+  position: absolute;
+  display: grid;
+  grid-template-rows: 1fr;
+  width: 17.5%;
+  min-width: 44px;
+  aspect-ratio: .84;
+  padding: 4px 4px 10px;
+  border: 1px solid #e5dced;
+  border-radius: 2px;
+  background: #fff6f9;
+  box-shadow: 0 3px 8px #070e30a3;
+  transform: translate(-50%, -50%) rotate(var(--card-angle));
+}
+
+.polaroid-frame img, .polaroid-paper > span {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.polaroid-frame img { object-fit: cover; }
+.polaroid-photo {
+  z-index: 1;
+  transition: transform .19s ease, box-shadow .19s ease;
+}
+.polaroid-photo:is(:hover, :focus-visible) {
+  z-index: 2;
+  transform: translate(-50%, -53%) rotate(0) scale(1.12);
+  box-shadow: 0 6px 12px #080b2990;
+}
+.polaroid-photo:active { transform: translate(-50%, -50%) scale(.96); }
+
+.polaroid-paper > span {
+  display: grid;
+  place-items: center;
+  color: #73598c;
+  background: linear-gradient(135deg, #b1c5e9, #e6caeb);
+}
+.polaroid-paper:nth-child(odd) > span {
+  color: #8b5a81;
+  background: linear-gradient(135deg, #f5c4df, #d9c9ef);
+}
+
+.polaroid-dialog {
+  width: min(390px, calc(100% - 32px));
+  max-height: calc(100dvh - 26px);
+  padding: 0;
+  border: 1px solid #eac6e4;
+  border-radius: 12px;
+  background: #fff6fa;
+  color: #352b53;
+  box-shadow: 0 18px 64px #070a26b0;
+}
+.polaroid-dialog::backdrop { background: #110e2cd1; }
+.polaroid-dialog-body { position: relative; padding: 16px; }
+.polaroid-dialog-body img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: min(55dvh, 420px);
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+.polaroid-dialog-body h2 { margin: 8px 0 4px; font: 500 1.75rem/1.2 "Caveat", cursive; }
+.polaroid-dialog-body p { margin: 0; line-height: 1.5; }
+.polaroid-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #c9b1d9;
+  border-radius: 50%;
+  background: #fff6fa;
+  color: #352b53;
+}
+.polaroid-close:hover { background: #f4ddeb; }

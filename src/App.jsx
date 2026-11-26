@@ -5,6 +5,7 @@ import Soundtrack from './components/Soundtrack'
 import Companions from './components/Companions'
 import Icon from './components/Icon'
 import FlowerTransition from './components/FlowerTransition'
+import FlowerGift from './components/FlowerGift'
 import WishBottle from './components/WishBottle'
 import LetterCollage from './components/LetterCollage'
 
@@ -81,7 +82,10 @@ export default function App(){
             </>}
             {level===3&&<Soundtrack/>}
             {level===4&&<Gallery/>}
-            {level===titles.length-1&&<WishBottle/>}
+            {level===titles.length-1&&<>
+              <WishBottle/>
+              <FlowerGift/>
+            </>}
             <div className="story-nav">
               {level!==3&&<button className="quest-sound" aria-label="Background music" aria-pressed={music} onClick={()=>{setSoundError('');setMusic(!music)}}><Icon name={music?'pause':'music'} size={17}/></button>}
               <button className="quest-next" type="button" aria-label={level===titles.length-1?'Start again':'Next page'} disabled={transition||!!flowers} onClick={()=>go((level+1)%titles.length)}>

@@ -1,0 +1,19 @@
+.flower-gift {
+  width: min(100%, 475px);
+  margin: clamp(29px, 7vh, 53px) auto 0;
+  text-align: center;
+  border-top: 1px solid #8290ca54;
+  padding-top: 17px;
+}
+
+.flower-gift h2 {
+  margin: 0 0 4px;
+  color: #ffd6ec;
+  font: 500 clamp(1.9rem, 6vw, 2.8rem)/1.2 "Caveat", cursive;
+}
+
+.flower-gift img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
