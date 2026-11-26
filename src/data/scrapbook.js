@@ -52,11 +52,6 @@ i hope you see how much you’re worth, because you’re perfect in my eyes. i l
 your character, the way you are with people, the way you look. everything about you is beautiful to me. thank you for coming into my life and for choosing to be with me, my love.`,
   },
 ]
-export const facts = [
-  { clue: 'What’s your superpower?', answer: 'Making a short text feel like a long hug.' },
-  { clue: 'What’s my favorite little thing?', answer: 'The way you start telling a story and end up laughing before you’ve even finished it.' },
-  { clue: 'Where’s my favorite place?', answer: 'Right beside you, even when we’re just sitting quietly.' },
-]
 export const photos = [
   {
     src: '/images/first-selfie.webp',

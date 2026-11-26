@@ -95,7 +95,7 @@
 
 .mixtape-content {
   display: grid;
-  grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   column-gap: clamp(13px, 4vw, 28px);
   align-items: start;
 }
@@ -149,7 +149,11 @@
 .spotify-panel iframe { display: block; width: 100%; border: 0; border-radius: 8px; }
 .spotify-panel p { font-size: .84rem; color: #5c566c; line-height: 1.4; }
 .spotify-panel a { color: #304b82; }
+@media (min-width: 621px) {
+  .mixtape-content:has(> .liner-note) {
+    grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr);
+  }
+}
 @media (max-width: 620px) {
-  .mixtape-content { grid-template-columns: 1fr; }
   .liner-note { margin-top: 17px; min-height: 0; }
 }

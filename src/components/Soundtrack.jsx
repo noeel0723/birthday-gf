@@ -24,7 +24,7 @@ function loadSpotify(){
   return apiPromise
 }
 
-function Track({song,index,selected,expanded,onSelect,onClose,onPreview,playing,setPlayingIndex,playerSlot}){
+function Track({song,index,selected,expanded,onSelect,onClose,playing,setPlayingIndex,playerSlot}){
   const trackButton=useRef(null)
   const host=useRef(null)
   const player=useRef(null)
@@ -96,8 +96,6 @@ function Track({song,index,selected,expanded,onSelect,onClose,onPreview,playing,
   return <>
     <button ref={trackButton} className={'tape-track'+(selected?' tape-track-active':'')} type="button"
       onClick={choose} aria-expanded={expanded} aria-controls={'player-'+index}
-      onPointerEnter={event=>{if(event.pointerType==='mouse')onPreview(index)}}
-      onPointerLeave={()=>onPreview(null)} onFocus={()=>onPreview(index)} onBlur={()=>onPreview(null)}
       aria-label={(expanded&&playing?'Pause ':'Play ')+song.title}>
       <span className="track-index" aria-hidden="true">{String(index+1).padStart(2,'0')}</span>
       <span className="track-title"><strong>{song.title}</strong><small>{song.artist}</small></span>
@@ -131,10 +129,9 @@ function Cassette({playing}){
 export default function Soundtrack(){
   const [selected,setSelected]=useState(null)
   const [expandedTrack,setExpandedTrack]=useState(null)
-  const [preview,setPreview]=useState(null)
   const [playingIndex,setPlayingIndex]=useState(null)
   const [playerSlot,setPlayerSlot]=useState(null)
-  const noteSong=songs[preview??selected??0]
+  const noteSong=selected===null?null:songs[selected]
 
   return <div className="mixtape">
     <Cassette playing={expandedTrack!==null&&playingIndex===expandedTrack}/>
@@ -143,7 +140,7 @@ export default function Soundtrack(){
         {songs.map((song,i)=><Track key={song.spotifyUrl+'-'+i} song={song} index={i}
           selected={selected===i} expanded={expandedTrack===i} playing={playingIndex===i}
           setPlayingIndex={setPlayingIndex} playerSlot={playerSlot}
-          onSelect={()=>{setSelected(i);setExpandedTrack(i)}} onClose={()=>setExpandedTrack(null)} onPreview={setPreview}/>)}
+          onSelect={()=>{setSelected(i);setExpandedTrack(i)}} onClose={()=>setExpandedTrack(null)}/>)}
       </div>
       {noteSong&&<aside className="liner-note" aria-label="Song note">
         <span>Why it reminds me of you</span>

@@ -12,8 +12,8 @@ The blue hedgehog is on the bottom left and Emma is on the bottom right. Replace
 2. Duplicate an entry in the `songs` array in `src/data/scrapbook.js`.
 3. Update `title`, `artist`, and `spotifyUrl`. Use the track URL copied from Spotify.
 4. Fill in `note` with why the song reminds you of Raya.
-5. Open **Your soundtrack**. Hover or focus a track to read its note, or tap it to play.
+5. Open **Your soundtrack** and select a track to play it and read its note.
 
 If playback needs another tap, press **Play** directly in the Spotify player. **Open in Spotify** opens the track externally.
 
-Edit the letter, facts, gallery captions, and five bottle wishes in `src/data/scrapbook.js`. Gallery photos live in `public/images`.
+Edit the letter, gallery captions, and five bottle wishes in `src/data/scrapbook.js`. Gallery photos live in `public/images`.
