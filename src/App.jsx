@@ -6,6 +6,7 @@ import Companions from './components/Companions'
 import Icon from './components/Icon'
 import FlowerTransition from './components/FlowerTransition'
 import WishBottle from './components/WishBottle'
+import LetterCollage from './components/LetterCollage'
 
 const titles=['','HAPPY BIRTHDAY, MY BABY!','A letter for you','Your soundtrack','pictures of you','Wish Bottle']
 const stars=Array.from({length:29},(_,i)=>({left:((i*43+5)%100)+'%',top:((i*37+3)%96)+'%'}))
@@ -74,7 +75,10 @@ export default function App(){
           <div className={'scene story'+(level===1?' greeting':'')}>
             <h1 className="story-title" ref={heading} tabIndex="-1">{titles[level]}</h1>
             {level===1&&<p>to the kindest and sweetest soul, may life bring you all the beautiful things you deserve!</p>}
-            {level===2&&<div className="letter-paper">{letter.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
+            {level===2&&<>
+              <LetterCollage/>
+              <div className="letter-paper">{letter.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>
+            </>}
             {level===3&&<Soundtrack/>}
             {level===4&&<Gallery/>}
             {level===titles.length-1&&<WishBottle/>}
