@@ -7,7 +7,7 @@ import Icon from './components/Icon'
 import FlowerTransition from './components/FlowerTransition'
 import WishBottle from './components/WishBottle'
 
-const titles=['','Happy birthday, my love!','A letter for you','Your soundtrack','About '+recipient,'Our little gallery','Wish Bottle']
+const titles=['','HAPPY BIRTHDAY, MY BABY!','A letter for you','Your soundtrack','About '+recipient,'Our little gallery','Wish Bottle']
 const stars=Array.from({length:29},(_,i)=>({left:((i*43+5)%100)+'%',top:((i*37+3)%96)+'%'}))
 
 export default function App(){
@@ -73,7 +73,7 @@ export default function App(){
         <div key={level} className={'quest-page'+(level===3?' quest-playlist':level===6?' quest-ending':'')}>
           <div className={'scene story'+(level===1?' greeting':'')}>
             <h1 className="story-title" ref={heading} tabIndex="-1">{titles[level]}</h1>
-            {level===1&&<p>Today the world is yours, {recipient}. I hope the wish you whispered comes true, little by little. ♡</p>}
+            {level===1&&<p>to the kindest and sweetest soul, may life bring you all the beautiful things you deserve!</p>}
             {level===2&&<div className="letter-paper">{letter.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
             {level===3&&<Soundtrack/>}
             {level===4&&<FactCards/>}{level===5&&<Gallery/>}{level===6&&<WishBottle/>}
