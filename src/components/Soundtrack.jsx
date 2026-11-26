@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Icon from './Icon'
 import { recipient, songs } from '../data/scrapbook'
 import './soundtrack.css'
@@ -23,16 +24,18 @@ function loadSpotify(){
   return apiPromise
 }
 
-function Track({song,index,selected,onSelect,onPreview,playing,setPlayingIndex}){
+function Track({song,index,selected,expanded,onSelect,onClose,onPreview,playing,setPlayingIndex,playerSlot}){
+  const trackButton=useRef(null)
   const host=useRef(null)
   const player=useRef(null)
   const requested=useRef(false)
   const ready=useRef(false)
   const [unavailable,setUnavailable]=useState(false)
+  const [playerRevision,setPlayerRevision]=useState(0)
   const trackId=song.spotifyUrl?.match(/^https:\/\/open\.spotify\.com\/(?:intl-[a-z-]+\/)?track\/([A-Za-z0-9]{22})(?:[/?#]|$)/)?.[1]
 
   useEffect(()=>{
-    if(!trackId)return
+    if(!trackId||!playerSlot)return
     let disposed=false
     const node=document.createElement('div')
     const container=host.current
@@ -65,13 +68,13 @@ function Track({song,index,selected,onSelect,onPreview,playing,setPlayingIndex})
       player.current=null
       container.replaceChildren()
     }
-  },[trackId,index,setPlayingIndex])
+  },[trackId,index,setPlayingIndex,playerRevision,playerSlot])
   useEffect(()=>{
-    if(!selected){requested.current=false;player.current?.pause()}
-  },[selected])
+    if(!expanded){requested.current=false;player.current?.pause()}
+  },[expanded])
   function choose(){
     onSelect()
-    if(selected&&playing){
+    if(expanded&&playing){
       requested.current=false
       player.current?.pause()
     }else{
@@ -79,21 +82,35 @@ function Track({song,index,selected,onSelect,onPreview,playing,setPlayingIndex})
       if(ready.current)player.current?.play()
     }
   }
+  function closePlayer(){
+    requested.current=false
+    ready.current=false
+    player.current?.pause()
+    setPlayingIndex(current=>current===index?null:current)
+    setUnavailable(false)
+    // Recreate the embed to clear Spotify's end-of-preview screen on replay.
+    setPlayerRevision(revision=>revision+1)
+    onClose()
+    trackButton.current?.focus({preventScroll:true})
+  }
   return <>
-    <button className={'tape-track'+(selected?' tape-track-active':'')} type="button"
-      onClick={choose} aria-expanded={selected} aria-controls={'player-'+index}
+    <button ref={trackButton} className={'tape-track'+(selected?' tape-track-active':'')} type="button"
+      onClick={choose} aria-expanded={expanded} aria-controls={'player-'+index}
       onPointerEnter={event=>{if(event.pointerType==='mouse')onPreview(index)}}
       onPointerLeave={()=>onPreview(null)} onFocus={()=>onPreview(index)} onBlur={()=>onPreview(null)}
-      aria-label={(selected&&playing?'Jeda ':'Putar ')+song.title}>
+      aria-label={(expanded&&playing?'Jeda ':'Putar ')+song.title}>
       <span className="track-index" aria-hidden="true">{String(index+1).padStart(2,'0')}</span>
       <span className="track-title"><strong>{song.title}</strong><small>{song.artist}</small></span>
-      <span className="tape-play"><Icon name={selected&&playing?'pause':'play'} size={16}/></span>
+      <span className="tape-play"><Icon name={expanded&&playing?'pause':'play'} size={16}/></span>
     </button>
-    <div hidden={!selected} className="spotify-panel" id={'player-'+index}>
+    {playerSlot&&createPortal(<div hidden={!expanded} className="spotify-panel" id={'player-'+index}>
+      {expanded&&<button type="button" className="spotify-close" aria-label="Tutup pemutar Spotify" onClick={closePlayer}>
+        <Icon name="close" size={19}/>Tutup pemutar
+      </button>}
       <div ref={host}/>
-      {selected&&<p>{!trackId?'Tautan lagu perlu diperbarui.':unavailable?'Pemutar belum terhubung.':!playing?'Jika musik belum terdengar, tekan Play di pemutar.':''} {trackId&&<a href={'https://open.spotify.com/track/'+trackId} target="_blank" rel="noreferrer">Buka Spotify</a>}</p>}
-      {selected&&song.youtubeUrl&&<p><a href={song.youtubeUrl} target="_blank" rel="noreferrer">Tonton video resmi di YouTube</a></p>}
-    </div>
+      {expanded&&<p>{!trackId?'Tautan lagu perlu diperbarui.':unavailable?'Pemutar belum terhubung.':!playing?'Jika musik belum terdengar, tekan Play di pemutar.':''} {trackId&&<a href={'https://open.spotify.com/track/'+trackId} target="_blank" rel="noreferrer">Buka Spotify</a>}</p>}
+      {expanded&&song.youtubeUrl&&<p><a href={song.youtubeUrl} target="_blank" rel="noreferrer">Tonton video resmi di YouTube</a></p>}
+    </div>,playerSlot)}
   </>
 }
 
@@ -113,25 +130,29 @@ function Cassette({playing}){
 
 export default function Soundtrack(){
   const [selected,setSelected]=useState(null)
+  const [expandedTrack,setExpandedTrack]=useState(null)
   const [preview,setPreview]=useState(null)
   const [playingIndex,setPlayingIndex]=useState(null)
+  const [playerSlot,setPlayerSlot]=useState(null)
   const noteSong=songs[preview??selected??0]
 
   return <div className="mixtape">
-    <Cassette playing={selected!==null&&playingIndex===selected}/>
-    <div className="mixtape-content" style={{'--track-count':songs.length}}>
+    <Cassette playing={expandedTrack!==null&&playingIndex===expandedTrack}/>
+    <div className="mixtape-content">
       <div className="tape-list">
         {songs.map((song,i)=><Track key={song.spotifyUrl+'-'+i} song={song} index={i}
-          selected={selected===i} playing={playingIndex===i} setPlayingIndex={setPlayingIndex}
-          onSelect={()=>setSelected(i)} onPreview={setPreview}/>)}
+          selected={selected===i} expanded={expandedTrack===i} playing={playingIndex===i}
+          setPlayingIndex={setPlayingIndex} playerSlot={playerSlot}
+          onSelect={()=>{setSelected(i);setExpandedTrack(i)}} onClose={()=>setExpandedTrack(null)} onPreview={setPreview}/>)}
       </div>
       {noteSong&&<aside className="liner-note" aria-label="Catatan lagu">
         <span>Mengingatkanku padamu</span>
-        <div key={noteSong.title} className="liner-message">
+        <div key={noteSong.title} className="liner-message" lang="en">
           <strong>{noteSong.title}</strong>
-          <p>{noteSong.note}</p>
+          {noteSong.note.split('\n\n').map(paragraph=><p key={paragraph}>{paragraph}</p>)}
         </div>
       </aside>}
+      <div className="spotify-players" ref={setPlayerSlot} hidden={expandedTrack===null}/>
     </div>
   </div>
 }
