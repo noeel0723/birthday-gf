@@ -6,9 +6,24 @@ export const letter = [
   'Kalau suatu hari kamu lupa betapa berharganya kamu, buka lagi halaman ini. Aku sayang kamu. Selamat ulang tahun, pacarku!',
 ]
 export const songs = [
-  { title: 'Every Summertime', artist: 'NIKI', spotifyUrl: 'https://open.spotify.com/track/68HocO7fx9z0MgDU0ZPHro', note: 'Buat rasa hangat yang datang setiap kali aku ingat kamu.' },
-  { title: 'Bergema Sampai Selamanya', artist: 'Nadhif Basalamah', spotifyUrl: 'https://open.spotify.com/track/1RaJdXCj61oSRUUciGKoWe', note: 'Buat harapan kecilku supaya kita terus saling memilih.' },
-  { title: 'Best Part', artist: 'Daniel Caesar feat. H.E.R.', spotifyUrl: 'https://open.spotify.com/track/1RMJOxR6GRPsBHL8qeC2ux', note: 'Untuk kamu, bagian paling manis dari hari yang biasa saja.' },
+  {
+    title: "Like I'm Gonna Lose You",
+    artist: 'Meghan Trainor feat. John Legend',
+    spotifyUrl: 'https://open.spotify.com/track/2EJwxob7gpbWLzr5FhEAk4',
+    note: 'This song makes me want to linger a little longer when we say goodnight. Even the smallest moments with you are worth holding on to.',
+  },
+  {
+    title: 'love.',
+    artist: 'wave to earth',
+    spotifyUrl: 'https://open.spotify.com/track/5rDXfGMWI6S8wkXR0MHsvv',
+    note: 'Being with you feels like taking a deep breath at the end of a long day. I could sit beside you in complete silence and still feel understood.',
+  },
+  {
+    title: 'Out of My League',
+    artist: 'Fitz and The Tantrums',
+    spotifyUrl: 'https://open.spotify.com/track/2AYEOC02WLhUiOoaig2SEH',
+    note: 'You still give me butterflies at the most random moments. You’ll smile at me from across the room, and suddenly I’m trying very hard to act normal.',
+  },
 ]
 export const facts = [
   { clue: 'Kekuatan supermu?', answer: 'Bikin satu chat pendek terasa seperti pelukan panjang.' },
