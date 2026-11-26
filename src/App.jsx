@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { recipient, letter } from './data/scrapbook'
-import { FactCards, Gallery, WishJar } from './components/MemoryPages'
+import { FactCards, Gallery } from './components/MemoryPages'
 import Soundtrack from './components/Soundtrack'
 import Companions from './components/Companions'
 import Icon from './components/Icon'
-import ArcadeIcon from './components/ArcadeIcon'
 import FlowerTransition from './components/FlowerTransition'
+import WishBottle from './components/WishBottle'
 
-const levels=['Make a wish','Ulang tahun','Surat','Playlist','Fun fact','Galeri','Harapan']
-const titles=['','Happy birthday, pacar!','Surat untukmu','Soundtrack kamu','Tentang '+recipient,'Galeri kecil kita','Toples harapan']
+const titles=['','Happy birthday, my love!','A letter for you','Your soundtrack','About '+recipient,'Our little gallery','Wish Bottle']
 const stars=Array.from({length:29},(_,i)=>({left:((i*43+5)%100)+'%',top:((i*37+3)%96)+'%'}))
 
 export default function App(){
@@ -57,7 +56,7 @@ export default function App(){
     if(!music||level===3){audio.current.pause();return}
     audio.current.volume=.3
     let current=true
-    audio.current.play().catch(()=>{if(current){setMusic(false);setSoundError('Musik belum bisa diputar. Coba lagi.')}})
+    audio.current.play().catch(()=>{if(current){setMusic(false);setSoundError('Couldn’t play the music. Please try again.')}})
     return ()=>{current=false}
   },[music,level])
   if(boot)return null
@@ -70,24 +69,26 @@ export default function App(){
     </main> : <main className="console">
       <div className={'screen '+(transition?'warping':'')}>
         <div className="stars" aria-hidden="true">{stars.map((s,i)=><i key={i} style={s}/>)}</div>
-        <button className="quest-back" type="button" aria-label="Kembali" disabled={transition||!!flowers} onClick={()=>go(level-1)}><Icon name="back" size={21}/></button>
-        <div key={level} className={'quest-page'+(level===3?' quest-playlist':'')}>
+        <button className="quest-back" type="button" aria-label="Back" disabled={transition||!!flowers} onClick={()=>go(level-1)}><Icon name="back" size={21}/></button>
+        <div key={level} className={'quest-page'+(level===3?' quest-playlist':level===6?' quest-ending':'')}>
           <div className={'scene story'+(level===1?' greeting':'')}>
             <h1 className="story-title" ref={heading} tabIndex="-1">{titles[level]}</h1>
-            {level===1&&<p>Hari ini dunianya milik kamu, {recipient}. Semoga doa yang tadi kamu bisikkan pelan-pelan jadi nyata. ♡</p>}
-            {level===2&&<div className="letter-paper"><b>Sayangku, {recipient},</b>{letter.map(line=><p key={line}>{line}</p>)}<span>Dengan sayang, aku ♡</span></div>}
+            {level===1&&<p>Today the world is yours, {recipient}. I hope the wish you whispered comes true, little by little. ♡</p>}
+            {level===2&&<div className="letter-paper"><b>My dearest {recipient},</b>{letter.map(line=><p key={line}>{line}</p>)}<span>With love, me ♡</span></div>}
             {level===3&&<Soundtrack/>}
-            {level===4&&<FactCards/>}{level===5&&<Gallery/>}{level===6&&<WishJar/>}
+            {level===4&&<FactCards/>}{level===5&&<Gallery/>}{level===6&&<WishBottle/>}
             <div className="story-nav">
-              {level!==3&&<button className="quest-sound" aria-label="Musik latar" aria-pressed={music} onClick={()=>{setSoundError('');setMusic(!music)}}><Icon name={music?'pause':'music'} size={17}/></button>}
-              <button className="action" onClick={()=>go((level+1)%levels.length)}>{level===6?'Main dari awal':level===1?'Baca suratku':'Lanjut ke '+levels[level+1].toLowerCase()}<ArcadeIcon name="play" size={12}/></button>
+              {level!==3&&<button className="quest-sound" aria-label="Background music" aria-pressed={music} onClick={()=>{setSoundError('');setMusic(!music)}}><Icon name={music?'pause':'music'} size={17}/></button>}
+              <button className="quest-next" type="button" aria-label={level===titles.length-1?'Start again':'Next page'} disabled={transition||!!flowers} onClick={()=>go((level+1)%titles.length)}>
+                <Icon name={level===titles.length-1?'replay':'next'} size={23}/>
+              </button>
             </div>
             {soundError&&<p role="status">{soundError}</p>}
           </div>
         </div>
         <div className="quest-edge">
           <Companions/>
-          <div className="quest-progress" role="img" aria-label={'Halaman '+(level+1)+' dari '+levels.length}>{levels.map((label,i)=><i key={label} className={i<=level?'lit':''}/>)}</div>
+          <div className="quest-progress" role="img" aria-label={'Page '+(level+1)+' of '+titles.length}>{titles.map((title,i)=><i key={title} className={i<=level?'lit':''}/>)}</div>
         </div>
         {transition&&<div className="wipe" aria-hidden="true"/>}
       </div>

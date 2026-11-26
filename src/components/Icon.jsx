@@ -12,6 +12,10 @@ const shapes = {
   close: <path d="m6 6 12 12M18 6 6 18"/>,
   chevron: <path d="m9 5 7 7-7 7"/>,
   back: <path d="m12 5-7 7 7 7M5 12h14"/>,
+  next: <path d="m12 5 7 7-7 7M5 12h14"/>,
+  replay: <path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/>,
+  sun: <><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></>,
+  moon: <path d="M20.9 13.3A9 9 0 0 1 10.7 3.1 9 9 0 1 0 20.9 13.3Z"/>,
   play: <path d="m8 4 12 8-12 8Z"/>,
   pause: <path d="M8 5v14M16 5v14"/>,
 }

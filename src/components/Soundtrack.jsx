@@ -98,18 +98,18 @@ function Track({song,index,selected,expanded,onSelect,onClose,onPreview,playing,
       onClick={choose} aria-expanded={expanded} aria-controls={'player-'+index}
       onPointerEnter={event=>{if(event.pointerType==='mouse')onPreview(index)}}
       onPointerLeave={()=>onPreview(null)} onFocus={()=>onPreview(index)} onBlur={()=>onPreview(null)}
-      aria-label={(expanded&&playing?'Jeda ':'Putar ')+song.title}>
+      aria-label={(expanded&&playing?'Pause ':'Play ')+song.title}>
       <span className="track-index" aria-hidden="true">{String(index+1).padStart(2,'0')}</span>
       <span className="track-title"><strong>{song.title}</strong><small>{song.artist}</small></span>
       <span className="tape-play"><Icon name={expanded&&playing?'pause':'play'} size={16}/></span>
     </button>
     {playerSlot&&createPortal(<div hidden={!expanded} className="spotify-panel" id={'player-'+index}>
-      {expanded&&<button type="button" className="spotify-close" aria-label="Tutup pemutar Spotify" onClick={closePlayer}>
-        <Icon name="close" size={19}/>Tutup pemutar
+      {expanded&&<button type="button" className="spotify-close" aria-label="Close Spotify player" onClick={closePlayer}>
+        <Icon name="close" size={19}/>Close player
       </button>}
       <div ref={host}/>
-      {expanded&&<p>{!trackId?'Tautan lagu perlu diperbarui.':unavailable?'Pemutar belum terhubung.':!playing?'Jika musik belum terdengar, tekan Play di pemutar.':''} {trackId&&<a href={'https://open.spotify.com/track/'+trackId} target="_blank" rel="noreferrer">Buka Spotify</a>}</p>}
-      {expanded&&song.youtubeUrl&&<p><a href={song.youtubeUrl} target="_blank" rel="noreferrer">Tonton video resmi di YouTube</a></p>}
+      {expanded&&<p>{!trackId?'This track link needs updating.':unavailable?'The player couldn’t connect.':!playing?'If the music hasn’t started, press Play in the player.':''} {trackId&&<a href={'https://open.spotify.com/track/'+trackId} target="_blank" rel="noreferrer">Open in Spotify</a>}</p>}
+      {expanded&&song.youtubeUrl&&<p><a href={song.youtubeUrl} target="_blank" rel="noreferrer">Watch the official video on YouTube</a></p>}
     </div>,playerSlot)}
   </>
 }
@@ -145,8 +145,8 @@ export default function Soundtrack(){
           setPlayingIndex={setPlayingIndex} playerSlot={playerSlot}
           onSelect={()=>{setSelected(i);setExpandedTrack(i)}} onClose={()=>setExpandedTrack(null)} onPreview={setPreview}/>)}
       </div>
-      {noteSong&&<aside className="liner-note" aria-label="Catatan lagu">
-        <span>Mengingatkanku padamu</span>
+      {noteSong&&<aside className="liner-note" aria-label="Song note">
+        <span>Why it reminds me of you</span>
         <div key={noteSong.title} className="liner-message" lang="en">
           <strong>{noteSong.title}</strong>
           {noteSong.note.split('\n\n').map(paragraph=><p key={paragraph}>{paragraph}</p>)}

@@ -14,7 +14,7 @@ function Sticker({file, label, variant, fallback}) {
 
 export default function Companions() {
   return <>
-    <Sticker file="sonic.png" label="Mainkan stiker Sonic" variant="ring" fallback="◯"/>
-    <Sticker file="emma-meyers.png" label="Mainkan stiker Emma" variant="star" fallback="★"/>
+    <Sticker file="sonic.png" label="Animate the blue hedgehog sticker" variant="ring" fallback="◯"/>
+    <Sticker file="emma-meyers.png" label="Animate Emma’s sticker" variant="star" fallback="★"/>
   </>
 }
