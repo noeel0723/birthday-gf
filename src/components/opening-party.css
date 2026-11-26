@@ -66,8 +66,9 @@
   width: 82%;
   height: 82%;
   object-fit: contain;
+  image-rendering: pixelated;
 }
-.guest-sonic img { mix-blend-mode: multiply; image-rendering: pixelated; }
+.guest-sonic img { mix-blend-mode: multiply; }
 
 .guest-hop { animation: guest-hop .51s cubic-bezier(.2,.75,.33,1); }
 @keyframes guest-hop {
